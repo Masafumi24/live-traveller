@@ -8,4 +8,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header
+      .headerTop
+        .headerTopLogo
+          =image_tag "logo.png"
+      .headerBottom
+        .headerBottomBox
+          =link_to "テスト", "#", class:"headerBottomBoxBtn"
+          =link_to "テスト", "#", class:"headerBottomBoxBtn"
+          =link_to "テスト", "#", class:"headerBottomBoxBtn"
+          =link_to "テスト", "#", class:"headerBottomBoxBtn"
+          =link_to "テスト", "#", class:"headerBottomBoxBtn"
+          =link_to "テスト", "#", class:"headerBottomBoxBtn"
     = yield
