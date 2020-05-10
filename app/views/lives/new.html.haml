@@ -1,0 +1,19 @@
+= form_with model: @live, local: true do |f|
+  .liveNewTitle
+    新規スケジュールの作成
+  .liveNewBox
+    .liveNewBoxName
+      LIVEタイトル
+    .liveNewBoxForm
+      = f.text_field :title, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      日程
+    .liveNewBoxForm
+      = f.text_field :day, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      LIVEタイトル
+    .liveNewBoxForm
+      = f.text_field :information, class:"liveNewBoxFormField"
+  

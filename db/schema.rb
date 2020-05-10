@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_120607) do
+ActiveRecord::Schema.define(version: 2020_05_10_093319) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "member"
     t.bigint "live_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,9 +23,21 @@ ActiveRecord::Schema.define(version: 2020_05_09_120607) do
   create_table "lives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "day"
+    t.integer "fee"
+    t.string "seat"
     t.string "information"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "berthday"
+    t.bigint "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_members_on_artist_id"
   end
 
   add_foreign_key "artists", "lives", column: "live_id"
