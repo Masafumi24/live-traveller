@@ -13,7 +13,23 @@
       = f.text_field :day, class:"liveNewBoxFormField"
   .liveNewBox
     .liveNewBoxName
-      LIVEタイトル
+      チケット代
+    .liveNewBoxForm
+      = f.text_field :fee, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      会場
+    .liveNewBoxForm
+      = f.text_field :venue, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      座席
+    .liveNewBoxForm
+      = f.text_field :seat, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      その他（メモ等）
     .liveNewBoxForm
       = f.text_field :information, class:"liveNewBoxFormField"
-  
+  .submitBox
+    = f.submit class:"submitBoxBtn", value: "スケジュールを保存する"

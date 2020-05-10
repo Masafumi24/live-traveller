@@ -1,0 +1,16 @@
+= form_with model: @artist, local: true do |f|
+  .liveNewTitle
+    アーティストの登録
+  .liveNewBox
+    .liveNewBoxName
+      アーティスト名
+    .liveNewBoxForm
+      = f.text_field :name, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      メンバー
+    .liveNewBoxForm
+      = f.fields_for :members, @artist.members do |c|
+        = c.text_field :name, class:"liveNewBoxFormField"
+  .submitBox
+    = f.submit class:"submitBoxBtn", value: "アーティストを保存する"
