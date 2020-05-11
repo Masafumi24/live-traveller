@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_093319) do
+ActiveRecord::Schema.define(version: 2020_05_11_102524) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "price"
+    t.bigint "live_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["live_id"], name: "index_goods_on_live_id"
   end
 
   create_table "lives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,6 +48,23 @@ ActiveRecord::Schema.define(version: 2020_05_10_093319) do
     t.index ["artist_id"], name: "index_members_on_artist_id"
   end
 
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "day"
+    t.string "fee"
+    t.string "venue"
+    t.string "information"
+    t.bigint "artist_id"
+    t.bigint "live_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_schedules_on_artist_id"
+    t.index ["live_id"], name: "index_schedules_on_live_id"
+  end
+
+  add_foreign_key "goods", "lives", column: "live_id"
   add_foreign_key "lives", "artists"
   add_foreign_key "members", "artists"
+  add_foreign_key "schedules", "artists"
+  add_foreign_key "schedules", "lives", column: "live_id"
 end
