@@ -5,6 +5,10 @@ class LivesController < ApplicationController
 
   def new
     @live = Live.new
+    @artist_array = ["選択してください"]
+    Artist.all.each do |a|
+      @artist_array << a.name
+    end
   end
 
   def create
@@ -20,13 +24,6 @@ class LivesController < ApplicationController
 
   def live_params
     params[:live].permit(:title, :date, :fee, :venue, :seat, :information)
-    # @punch.at_in = DateTime.new(
-    #   params[:punch]["at_in(1i)"].to_i,
-    #   params[:punch]["at_in(2i)"].to_i,
-    #   params[:punch]["at_in(3i)"].to_i,
-    #   params[:punch]["at_in(4i)"].to_i,
-    #   params[:punch]["at_in(5i)"].to_i
-    # )
   end
 
 end

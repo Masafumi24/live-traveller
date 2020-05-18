@@ -3,6 +3,11 @@
     新規スケジュールの作成
   .liveNewBox
     .liveNewBoxName
+      アーティスト名
+    .liveNewBoxForm
+      = f.select :artist_id, @artist_array, {include_blank: '選択ボックス'}
+  .liveNewBox
+    .liveNewBoxName
       LIVEタイトル
     .liveNewBoxForm
       = f.text_field :title, class:"liveNewBoxFormField"
