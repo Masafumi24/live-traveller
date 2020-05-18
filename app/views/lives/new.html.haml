@@ -10,7 +10,7 @@
     .liveNewBoxName
       日程
     .liveNewBoxForm
-      = f.text_field :day, class:"liveNewBoxFormField"
+      = f.date_select :date, {include_blank: true, use_month_numbers: true}
   .liveNewBox
     .liveNewBoxName
       チケット代
