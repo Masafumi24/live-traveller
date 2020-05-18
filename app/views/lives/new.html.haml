@@ -5,7 +5,7 @@
     .liveNewBoxName
       アーティスト名
     .liveNewBoxForm
-      = f.select :artist_id, @artist_array, {include_blank: '選択ボックス'}
+      = f.collection_select :artist_id, Artist.all, :id, :name, include_blank: "選択してください"
   .liveNewBox
     .liveNewBoxName
       LIVEタイトル
