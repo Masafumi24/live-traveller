@@ -5,7 +5,7 @@
     .liveNewBoxName
       公演名
     .liveNewBoxForm
-      = f.select :live_id, class:"liveNewBoxFormField"
+      = f.collection_select :live_id, Live.all, :id, :title, include_blank: "選択してください"
   .liveNewBox
     .liveNewBoxName
       グッズ名
@@ -16,3 +16,5 @@
       料金
     .liveNewBoxForm
       = f.text_field :price, class:"liveNewBoxFormField"
+  .submitBox
+    = f.submit class:"submitBoxBtn", value: "グッズを保存する"

@@ -16,6 +16,6 @@ class GoodsController < ApplicationController
   private
 
   def goods_params
-    params[:good].permit[:name, :price, :live_id]
+    params[:good].permit(:name, :price, :live_id)
   end
 end
