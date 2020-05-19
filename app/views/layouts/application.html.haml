@@ -11,15 +11,15 @@
     %header
       .headerTop
         .headerTopLogo
-          =image_tag "logo.png"
+          =link_to root_path do
+            =image_tag "logo.png"
       .headerBottom
         .headerBottomBox
           =link_to "スケジュール予約", new_life_path, class:"headerBottomBoxBtn"
-          =link_to "テスト", "#", class:"headerBottomBoxBtn"
-          =link_to "テスト", "#", class:"headerBottomBoxBtn"
-          =link_to "テスト", "#", class:"headerBottomBoxBtn"
-          =link_to "テスト", "#", class:"headerBottomBoxBtn"
-          =link_to "テスト", "#", class:"headerBottomBoxBtn"
+          =link_to "アーティスト登録", new_artist_path, class:"headerBottomBoxBtn"
+          =link_to "グッズ", new_good_path, class:"headerBottomBoxBtn"
+          =link_to "ログイン", new_user_session_path, class:"headerBottomBoxBtn"
+          =link_to "新規登録", new_user_registration_path, class:"headerBottomBoxBtn"
     .main
       .mainContent
         = yield

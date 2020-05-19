@@ -10,35 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_093319) do
+ActiveRecord::Schema.define(version: 2020_05_19_120525) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "price", null: false
     t.bigint "live_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["live_id"], name: "index_artists_on_live_id"
+    t.index ["live_id"], name: "index_goods_on_live_id"
   end
 
   create_table "lives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.string "day"
-    t.integer "fee"
-    t.string "seat"
-    t.string "information"
+    t.string "title", null: false
+    t.string "date"
+    t.integer "fee", null: false
+    t.string "venue", null: false
+    t.string "seat", null: false
+    t.string "information", null: false
+    t.bigint "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_lives_on_artist_id"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.string "berthday"
+    t.string "name", null: false
     t.bigint "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_members_on_artist_id"
   end
 
-  add_foreign_key "artists", "lives", column: "live_id"
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "icon"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "goods", "lives", column: "live_id"
+  add_foreign_key "lives", "artists"
+  add_foreign_key "members", "artists"
 end

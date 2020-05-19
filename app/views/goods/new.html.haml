@@ -1,0 +1,20 @@
+= form_with model: @good, local: true do |f|
+  .liveNewTitle
+    購入グッズの登録
+  .liveNewBox
+    .liveNewBoxName
+      公演名
+    .liveNewBoxForm
+      = f.collection_select :live_id, Live.all, :id, :title, include_blank: "選択してください"
+  .liveNewBox
+    .liveNewBoxName
+      グッズ名
+    .liveNewBoxForm
+      = f.text_field :name, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      料金
+    .liveNewBoxForm
+      = f.text_field :price, class:"liveNewBoxFormField"
+  .submitBox
+    = f.submit class:"submitBoxBtn", value: "グッズを保存する"
