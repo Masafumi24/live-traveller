@@ -29,5 +29,13 @@
     %br/
     .liveNewBoxForm
       = f.password_field :password_confirmation, autocomplete: "new-password", class:"liveNewBoxFormField"
+  .iconBox
+    .iconBoxName
+      アイコン登録
+    .iconBoxField
+      .iconBoxFieldFile
+        = f.file_field :icon
+      .iconBoxFieldPre
+        .prebox
   .submitBox
     = f.submit "新規登録", class:"submitBoxBtn"
