@@ -1,0 +1,18 @@
+= form_with model: @good, local: true do |f|
+  .liveNewTitle
+    購入グッズの登録
+  .liveNewBox
+    .liveNewBoxName
+      公演名
+    .liveNewBoxForm
+      = f.select :live_id, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      グッズ名
+    .liveNewBoxForm
+      = f.text_field :name, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      料金
+    .liveNewBoxForm
+      = f.text_field :price, class:"liveNewBoxFormField"
