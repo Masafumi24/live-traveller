@@ -37,7 +37,7 @@
         = f.file_field :icon, id: :user_img
       .iconBoxFieldPre
         - if @user.icon.present?
-          = image_tag @user.image, id: :img_prev
+          = image_tag @user.icon, id: :img_prev
         - else
           = image_tag "カメラアイコン.png", id: :img_prev
   .submitBox
