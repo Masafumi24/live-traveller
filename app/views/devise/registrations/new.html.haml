@@ -34,8 +34,11 @@
       アイコン登録
     .iconBoxField
       .iconBoxFieldFile
-        = f.file_field :icon
+        = f.file_field :icon, id: :user_img
       .iconBoxFieldPre
-        .prebox
+        - if @user.icon.present?
+          = image_tag @user.image, id: :img_prev
+        - else
+          = image_tag "カメラアイコン.png", id: :img_prev
   .submitBox
     = f.submit "新規登録", class:"submitBoxBtn"
