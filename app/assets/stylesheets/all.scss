@@ -5,6 +5,12 @@ header {
     height: 17vh;
     width: 70%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .fa-bars {
+      font-size: 40px;
+      line-height: 17vh;
+    }  
   }
   .headerBottom {
     height: 8vh;
@@ -24,6 +30,32 @@ header {
   }
 }
 //ここまでがヘッダー
+.drawr {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgb(60, 255, 245);
+  height: 100vh;
+  width: 30vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  &Top {
+    display: flex;
+    justify-content: space-between;
+    .fa-window-close {
+      font-size: 40px;
+    }
+    .drawrTopImage {
+      height: 150px;
+      width: 150px;
+      border-radius: 150px;
+      object-fit: cover;
+      box-shadow: 6px 6px 6px rgba(97, 97, 97, 0.9);
+    }
+  }
+}
+// ここまでがドロワー
 .main{
   background-color: rgb(190, 255, 255);
   width: 100%;
