@@ -51,7 +51,15 @@ header {
       width: 150px;
       border-radius: 150px;
       object-fit: cover;
-      box-shadow: 6px 6px 6px rgba(97, 97, 97, 0.9);
+      box-shadow: $shadow;
+    }
+  }
+  &Center {
+    margin-top: 30px;
+    font-size: 25px;
+    line-height: 80px;
+    &List {
+
     }
   }
 }

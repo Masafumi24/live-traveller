@@ -16,18 +16,31 @@
         %i.fas.fa-bars#drawrBtn
       .headerBottom
         .headerBottomBox
-          =link_to "スケジュール予約", new_life_path, class:"headerBottomBoxBtn"
-          =link_to "アーティスト登録", new_artist_path, class:"headerBottomBoxBtn"
-          =link_to "グッズ", new_good_path, class:"headerBottomBoxBtn"
-          =link_to "ログイン", new_user_session_path, class:"headerBottomBoxBtn"
-          =link_to "新規登録", new_user_registration_path, class:"headerBottomBoxBtn"
+          -# =link_to "スケジュール予約", new_life_path, class:"headerBottomBoxBtn"
+          -# =link_to "アーティスト登録", new_artist_path, class:"headerBottomBoxBtn"
+          -# =link_to "グッズ", new_good_path, class:"headerBottomBoxBtn"
+          -# =link_to "ログイン", new_user_session_path, class:"headerBottomBoxBtn"
+          -# =link_to "新規登録", new_user_registration_path, class:"headerBottomBoxBtn"
     .drawr
       .drawrTop
         %i.far.fa-window-close#closeBtn
-        - if @user.icon.present?
+        - if user_signed_in? && @user.icon.present?
           = image_tag @user.icon.url, class:"drawrTopImage"
         - else
           = image_tag "カメラアイコン.png", class:"drawrTopImage"
+      .drawrCenter
+        .drawrCenterList
+          =link_to "スケジュール予約", new_life_path
+        .drawrCenterList
+          =link_to "アーティスト登録", new_artist_path
+        .drawrCenterList
+          =link_to "グッズ", new_good_path
+        .drawrCenterList
+          =link_to "ログイン", new_user_session_path
+        .drawrCenterList
+          =link_to "新規登録", new_user_registration_path
+        .drawrCenterList
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
     .main
       .mainContent
         = yield
