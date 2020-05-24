@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_074740) do
+ActiveRecord::Schema.define(version: 2020_05_24_075631) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -28,14 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_074740) do
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "groups_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "message_id"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,8 +58,10 @@ ActiveRecord::Schema.define(version: 2020_05_24_074740) do
     t.text "message", null: false
     t.string "image"
     t.bigint "user_id"
+    t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_messages_on_group_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -84,8 +79,20 @@ ActiveRecord::Schema.define(version: 2020_05_24_074740) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_users_groups_on_group_id"
+    t.index ["user_id"], name: "index_users_groups_on_user_id"
+  end
+
   add_foreign_key "goods", "lives", column: "live_id"
   add_foreign_key "lives", "artists"
   add_foreign_key "members", "artists"
+  add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
+  add_foreign_key "users_groups", "groups"
+  add_foreign_key "users_groups", "users"
 end
