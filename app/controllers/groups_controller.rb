@@ -1,15 +1,18 @@
 class GroupsController < ApplicationController
-  # before_action :only, [:new]
+  before_action :instance_new, only: [:new]
 
   def new
-    @group = Group.new
   end
 
   def create
-    @group = Group.new(group_params)
+    instance_new(group_params)
   end
 
   private
+
+  def instance_new
+    @group = Group.new
+  end
 
   def group_params
     params[:group].permit(:name)

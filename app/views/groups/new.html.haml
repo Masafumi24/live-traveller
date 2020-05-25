@@ -1,0 +1,13 @@
+= form_with model: @group, local: true do |f|
+  .liveNewTitle
+    新規グループの作成
+  .liveNewBox
+    .liveNewBoxName
+      グループ名
+    .liveNewBoxForm
+      = f.text_field :name, class:"liveNewBoxFormField"
+  .liveNewBox
+    .liveNewBoxName
+      トークメンバー追加
+    .liveNewBoxForm
+      
