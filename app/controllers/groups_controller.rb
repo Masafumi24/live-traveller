@@ -1,21 +1,21 @@
 class GroupsController < ApplicationController
-  before_action :instance_new, only: [:new]
+  before_action :set_user
+  before_action :user_all
 
   def new
+    @group = Group.new
+    @group.users << current_user
   end
 
   def create
-    instance_new(group_params)
+    @group = Group.new(group_params)
+    (@group.save) ? (redirect_to root_path) : (redirect_to new_group_path)
   end
 
   private
 
-  def instance_new
-    @group = Group.new
-  end
-
   def group_params
-    params[:group].permit(:name)
+    params.require(:group).permit(:name, user_ids: [])
   end
   
 end

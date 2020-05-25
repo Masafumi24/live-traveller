@@ -6,8 +6,16 @@
       グループ名
     .liveNewBoxForm
       = f.text_field :name, class:"liveNewBoxFormField"
-  .liveNewBox
-    .liveNewBoxName
-      トークメンバー追加
-    .liveNewBoxForm
-      
+  - if user_signed_in? && @users.present?
+    .liveNewBox
+      .liveNewBoxName
+        トークメンバー追加
+      .liveNewBoxForm
+        = f.collection_check_boxes :user_ids, User.all, :id, :name
+    .submitBox
+      = f.submit class:"submitBoxBtn", value: "グループを作成する"
+-# %select.userSelect
+        -# = f.select :user_ids, class: "userSelect" do
+        -#   %option
+        -#     - @users.each do |user|
+        -#       %option{:value => user.id} #{user.name}

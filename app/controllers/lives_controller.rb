@@ -1,5 +1,5 @@
 class LivesController < ApplicationController
-  before_action :set_user, only: [:index]
+  before_action :set_user
 
   def index
   end
