@@ -41,6 +41,8 @@
           =link_to "新規登録", new_user_registration_path
         .drawrCenterList
           =link_to "ログアウト", destroy_user_session_path, method: :delete
+        .drawrCenterList
+          =link_to "グループ作成", new_group_path
     .main
       .mainContent
         = yield
