@@ -1,0 +1,6 @@
+.messages
+  .messagesContent
+  .messagesForm
+    .liveNewBoxForm
+      = form_with model: @message, local: true do |f|
+        = f.text_field :message, class:"liveNewBoxFormField"

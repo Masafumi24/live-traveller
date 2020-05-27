@@ -12,22 +12,6 @@ header {
       line-height: 17vh;
     }  
   }
-  .headerBottom {
-    height: 8vh;
-    &Box {
-      width: 70%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-evenly;
-      text-align: center;
-      &Btn {
-        width: 16%;
-        display: block;
-        font-size: 20px;
-        line-height: 8vh;
-      }
-    }
-  }
 }
 //ここまでがヘッダー
 .drawr {

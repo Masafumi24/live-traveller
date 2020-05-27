@@ -1,0 +1,12 @@
+.messages {
+  height: calc(100vh - 17vh);
+  width: 100%;
+  &Content {
+    background-color: red;
+    height: 73vh;
+  }
+  &Form {
+    background-color: green;
+    height: 10vh;
+  }
+}
