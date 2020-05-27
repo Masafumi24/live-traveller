@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :icon])
