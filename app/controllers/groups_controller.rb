@@ -1,6 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_user
+  # before_action :set_group
   before_action :user_all
+
+  def index
+    @groups = Group.all
+  end
 
   def new
     @group = Group.new

@@ -36,6 +36,8 @@
           =link_to "ログアウト", destroy_user_session_path, method: :delete
         .drawrCenterList
           =link_to "グループ作成", new_group_path
+        .drawrCenterList
+          =link_to "グループ一覧", groups_path
     .main
       .mainContent
         = yield
