@@ -6,7 +6,26 @@
     height: 73vh;
   }
   &Form {
+    box-sizing: border-box;
     background-color: green;
     height: 10vh;
+    display: flex;
+    &Field {
+      width: 70%;
+      margin-left: 20px;
+      line-height: 10vh;
+
+      &Area {
+        width: 100%;
+        padding: 20px 0; 
+      }
+    }
+    &Submit {
+      height: 70%;
+      &Btn{
+        display: block;
+        padding: 20px 0;
+      }
+    }
   }
 }

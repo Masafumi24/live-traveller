@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :lives, only: [:index, :new, :create]
   resources :artists, only: [:new, :create]
   resources :goods, only: [:new, :create]
-  resources :groups, only: [:index, :new, :create]
-  resources :messages, only: [:show, :create]
+  resources :groups, only: [:index, :new, :create] do
+    resources :messages, only: [:index, :create]
+  end
 end

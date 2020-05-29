@@ -1,0 +1,8 @@
+= form_with model: @message, local: true do |f|
+  .messages
+    .messagesContent
+    .messagesForm
+      .messagesFormField
+        = f.text_area :message, class:"messagesFormFieldArea"
+      .messagesFormSubmit
+        = f.submit class:"messagesFormSubmitBtn", value: "送信"
