@@ -1,6 +1,14 @@
 = form_with model: [@group, @message], local: true do |f|
   .messages
     .messagesContent
+      .messagesContentBox
+        - if @other_messages.present?
+          - @other_messages.each do |m|
+            = m.message
+      .messagesContentBox
+        - if @current_messages.present?
+          - @current_messages.each do |m|
+            = m.message
     .messagesForm
       .messagesFormField
         = f.text_area :message, class:"messagesFormFieldArea"

@@ -1,4 +1,5 @@
 class GoodsController < ApplicationController
+  before_action :set_user
 
   def new
     @good = Good.new
