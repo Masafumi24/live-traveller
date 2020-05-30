@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = @group.messages.new(message_params)
+    (@message.save) ? (redirect_to group_messages_path(@group.id)) : (redirect_to group_messages_path(@group.id))
   end
 
   private
