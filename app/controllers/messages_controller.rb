@@ -1,10 +1,12 @@
 class MessagesController < ApplicationController
   before_action :set_user
-  # before_action :set_group
+  before_action :set_group
 
   def index
     @message = Message.new
-    # @messages = @group.messages.includes(:user)
+    if @group.messages.present?
+      @messages = @group.messages.includes(:user)
+    end
   end
 
   def create

@@ -1,3 +1,3 @@
-- @groups.each do |g|
-  =link_to group_messages_path(g.id) do
+- current_user.groups.each do |g|
+  =link_to group_messages_path(g) do
     = g.name
