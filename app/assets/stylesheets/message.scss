@@ -4,6 +4,14 @@
   &Content {
     background-color: red;
     height: 73vh;
+    &Box {
+      &Right {
+        text-align: right;
+      }
+      &Left {
+        text-align: left;
+      }
+    }
   }
   &Form {
     box-sizing: border-box;

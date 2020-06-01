@@ -5,8 +5,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     if @group.messages.present?
-      @other_messages = @group.messages.includes(:user).where.not(user_id:(current_user.id))
-      @current_messages = @group.messages.where(user_id:(current_user.id))
+      @messages = @group.messages.includes(:user)
       # @messages = @group.messages.includes(:user)
     end
   end

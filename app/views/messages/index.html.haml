@@ -2,13 +2,14 @@
   .messages
     .messagesContent
       .messagesContentBox
-        - if @other_messages.present?
-          - @other_messages.each do |m|
-            = m.message
-      .messagesContentBox
-        - if @current_messages.present?
-          - @current_messages.each do |m|
-            = m.message
+        - if @messages.present?
+          - @messages.each do |m|
+            -if m.user_id == current_user.id
+              .messagesContentBoxRight
+                = m.message
+            - else
+              .messagesContentBoxLeft
+                = m.message
     .messagesForm
       .messagesFormField
         = f.text_area :message, class:"messagesFormFieldArea"
