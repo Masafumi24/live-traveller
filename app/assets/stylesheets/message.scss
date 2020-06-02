@@ -1,15 +1,51 @@
+@mixin messageList{
+  background-color: white;
+  height: 50px;
+  font-size: 25px;
+  line-height: 50px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  padding: 0 20px;
+}
+
+@mixin messageUserIcon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  object-fit: contain;
+}
+
 .messages {
   height: calc(100vh - 17vh);
   width: 100%;
   &Content {
-    background-color: red;
     height: 73vh;
+    overflow: scroll;
+    background-color: #ff0000;
     &Box {
+      box-sizing: border-box;
+      padding: 10px 20px;
       &Right {
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        &Text {
+          @include messageList;
+        }
+        &Icon {
+          @include messageUserIcon;
+          margin-left: 10px;
+        }
       }
       &Left {
-        text-align: left;
+        display: flex;
+        justify-content: flex-start;
+        &Text {
+          @include messageList;
+        }
+        &Icon {
+          @include messageUserIcon;
+          margin-right: 10px;
+        }
       }
     }
   }

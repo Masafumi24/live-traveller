@@ -1,15 +1,19 @@
 = form_with model: [@group, @message], local: true do |f|
   .messages
-    .messagesContent
+    .messagesContent#scroll-inner
       .messagesContentBox
         - if @messages.present?
           - @messages.each do |m|
             -if m.user_id == current_user.id
               .messagesContentBoxRight
-                = m.message
+                .messagesContentBoxRightText
+                  = m.message
+                = image_tag m.user.icon.url, class:"messagesContentBoxRightIcon"
             - else
               .messagesContentBoxLeft
-                = m.message
+                = image_tag m.user.icon.url, class:"messagesContentBoxLeftIcon"
+                .messagesContentBoxLeftText
+                  = m.message
     .messagesForm
       .messagesFormField
         = f.text_area :message, class:"messagesFormFieldArea"
