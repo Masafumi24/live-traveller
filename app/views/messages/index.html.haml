@@ -9,6 +9,7 @@
                 .messagesContentBoxRightText
                   = m.message
                 = image_tag m.user.icon.url, class:"messagesContentBoxRightIcon"
+                
             - else
               .messagesContentBoxLeft
                 = image_tag m.user.icon.url, class:"messagesContentBoxLeftIcon"
@@ -17,5 +18,8 @@
     .messagesForm
       .messagesFormField
         = f.text_area :message, class:"messagesFormFieldArea"
+      %label
+        %i.far.fa-image
+          = f.file_field :image, class:"fa-imageFile"
       .messagesFormSubmit
         = f.submit class:"messagesFormSubmitBtn", value: "送信"

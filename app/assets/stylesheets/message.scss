@@ -21,7 +21,7 @@
   &Content {
     height: 73vh;
     overflow: scroll;
-    background-color: #ff0000;
+    background-image: url('room-back-image.jpg');
     &Box {
       box-sizing: border-box;
       padding: 10px 20px;
@@ -51,24 +51,34 @@
   }
   &Form {
     box-sizing: border-box;
-    background-color: green;
     height: 10vh;
     display: flex;
+    justify-content: space-between;
+    padding: 20px;
     &Field {
-      width: 70%;
-      margin-left: 20px;
-      line-height: 10vh;
+      width: 80%;
 
       &Area {
         width: 100%;
-        padding: 20px 0; 
+        padding: 10px 0; 
       }
+    }
+    .fa-image {
+      font-size: 4em;
+      &File {
+        display: none;
+      }
+    }
+    .fa-image:hover {
+      color: gray;
+      cursor: pointer;
     }
     &Submit {
       height: 70%;
       &Btn{
         display: block;
-        padding: 20px 0;
+        padding: 1em 2em;
+        line-height: 10vh;
       }
     }
   }
