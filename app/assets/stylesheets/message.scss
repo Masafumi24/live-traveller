@@ -31,6 +31,14 @@
         &Text {
           @include messageList;
         }
+        &Image {
+          height: 300px;
+          width: 300px;
+          &Url {
+            height: 100%;
+            width: 100%;
+          }
+        }
         &Icon {
           @include messageUserIcon;
           margin-left: 10px;

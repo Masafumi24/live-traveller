@@ -8,8 +8,8 @@
               .messagesContentBoxRight
                 .messagesContentBoxRightText
                   = m.message
-                .messagesContentBoxRightText
-                  = image_tag m.image.url
+                .messagesContentBoxRightImage
+                  = image_tag m.image.url, class:"messagesContentBoxRightImageUrl"
                 = image_tag m.user.icon.url, class:"messagesContentBoxRightIcon"
             - else
               .messagesContentBoxLeft
