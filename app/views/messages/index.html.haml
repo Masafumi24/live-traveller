@@ -8,14 +8,18 @@
               .messagesContentBoxRight
                 .messagesContentBoxRightText
                   = m.message
-                .messagesContentBoxRightImage
-                  = image_tag m.image.url, class:"messagesContentBoxRightImageUrl"
+                -if m.image.present?
+                  .messagesContentBoxRightImage
+                    = image_tag m.image.url, class:"messagesContentBoxRightImageUrl"
                 = image_tag m.user.icon.url, class:"messagesContentBoxRightIcon"
             - else
               .messagesContentBoxLeft
                 = image_tag m.user.icon.url, class:"messagesContentBoxLeftIcon"
                 .messagesContentBoxLeftText
                   = m.message
+                -if m.image.present?
+                  .messagesContentBoxRightImage
+                    = image_tag m.image.url, class:"messagesContentBoxRightImageUrl"
     .messagesForm
       .messagesFormField
         = f.text_area :message, class:"messagesFormFieldArea"

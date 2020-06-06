@@ -15,6 +15,16 @@
   object-fit: contain;
 }
 
+.messagesContentBoxRightImage {
+  height: 300px;
+  width: 300px;
+  &Url {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
 .messages {
   height: calc(100vh - 17vh);
   width: 100%;
@@ -30,14 +40,6 @@
         justify-content: flex-end;
         &Text {
           @include messageList;
-        }
-        &Image {
-          height: 300px;
-          width: 300px;
-          &Url {
-            height: 100%;
-            width: 100%;
-          }
         }
         &Icon {
           @include messageUserIcon;
