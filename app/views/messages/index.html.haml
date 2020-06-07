@@ -6,8 +6,9 @@
           - @messages.each do |m|
             -if m.user_id == current_user.id
               .messagesContentBoxRight
-                .messagesContentBoxRightText
-                  = m.message
+                -if m.message.present?
+                  .messagesContentBoxRightText
+                    = m.message
                 -if m.image.present?
                   .messagesContentBoxRightImage
                     = image_tag m.image.url, class:"messagesContentBoxRightImageUrl"
@@ -15,8 +16,9 @@
             - else
               .messagesContentBoxLeft
                 = image_tag m.user.icon.url, class:"messagesContentBoxLeftIcon"
-                .messagesContentBoxLeftText
-                  = m.message
+                -if m.message.present?
+                  .messagesContentBoxLeftText
+                    = m.message
                 -if m.image.present?
                   .messagesContentBoxRightImage
                     = image_tag m.image.url, class:"messagesContentBoxRightImageUrl"
